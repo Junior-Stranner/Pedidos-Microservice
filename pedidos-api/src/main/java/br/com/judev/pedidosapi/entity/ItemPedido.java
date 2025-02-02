@@ -9,14 +9,18 @@ import java.util.UUID;
 
 @Entity
 @Data
-@NoArgsConstructor@AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class ItemPedido {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private UUID id = UUID.randomUUID();
     @ManyToOne
+    @JoinColumn(name = "pedido_id", nullable = false)
+    private Pedido pedido;
+    @ManyToOne
+    @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
     private Integer quantidade;
-
 }

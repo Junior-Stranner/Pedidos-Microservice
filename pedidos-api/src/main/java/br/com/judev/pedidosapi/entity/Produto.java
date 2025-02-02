@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private UUID id = UUID.randomUUID();
     private String nome;
     private double valor;
