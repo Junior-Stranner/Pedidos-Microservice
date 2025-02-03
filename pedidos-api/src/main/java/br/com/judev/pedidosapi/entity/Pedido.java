@@ -10,15 +10,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
 @Table(name = "pedidos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pedido {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id = UUID.randomUUID();
 
     private String cliente;
