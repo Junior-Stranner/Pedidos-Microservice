@@ -3,9 +3,7 @@ package br.com.judev.pedidosapi.entity;
 import br.com.judev.pedidosapi.entity.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
@@ -20,12 +18,12 @@ import java.util.UUID;
 public class Pedido {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id = UUID.randomUUID();
 
     private String cliente;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<ItemPedido> itens;
 
     private double valorTotal;
@@ -36,5 +34,5 @@ public class Pedido {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dataHora;
+    private LocalDateTime dataHora = LocalDateTime.now();
 }

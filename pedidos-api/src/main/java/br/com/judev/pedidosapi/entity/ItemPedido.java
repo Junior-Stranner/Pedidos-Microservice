@@ -14,7 +14,7 @@ import java.util.UUID;
 public class ItemPedido {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id = UUID.randomUUID();
     @ManyToOne
     @JoinColumn(name = "pedido_id", nullable = false)
