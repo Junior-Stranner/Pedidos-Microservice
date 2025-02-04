@@ -1,0 +1,32 @@
+package br.com.judev.notificacao.entity;
+
+import br.com.judev.notificacao.entity.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Pedido {
+    private UUID id = UUID.randomUUID();
+
+    private String cliente;
+
+    private List<ItemPedido> itens;
+
+    private double valorTotal;
+    private String emailNotificacao;
+
+    private Status status = Status.EM_PROCESSAMENTO;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime dataHora = LocalDateTime.now();
+}
