@@ -11,11 +11,13 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="pedidos-api" />
+        <module name="notificacao" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="notificacao" options="-parameters" />
       <module name="pedidos-api" options="-parameters" />
     </option>
   </component>
