@@ -2,31 +2,35 @@ package br.com.judev.notificacao.service;
 
 import br.com.judev.notificacao.entity.Pedido;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
 
+    private final JavaMailSender mailSender;
 
-    private final EmailService emailService;
-
-    public EmailService(EmailService emailService) {
-        this.emailService = emailService;
+    public EmailService(JavaMailSender mailSender) {
+        this.mailSender = mailSender;
     }
 
-    private void enviarEmail(Pedido pedido){
+    public void enviarEmail(Pedido pedido){
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 
         simpleMailMessage.setFrom("pedidos-api@company.com");
-        simpleMailMessage.setTo(pedido.getEmailNotificacao);
+        simpleMailMessage.setTo(pedido.getEmailNotificacao());
         simpleMailMessage.setSubject("Pedido de compra");
-        simpleMailMessage.setText(this.gerarMensagem());
-        emailService.send(simpleMailMessage);
+        simpleMailMessage.setText(this.gerarMensagem(pedido));
+        mailSender.send(simpleMailMessage);
     }
 
     private String gerarMensagem(Pedido pedido) {
-        Pedido pedidoId = new Pedido();
-    }
+        String pedidoId = pedido.getId().toString();
+        String cliente = pedido.getCliente();
+        String valor = String.valueOf(pedido.getValorTotal());
+        String status = pedido.getStatus().name();
 
+        return String.format("Olá  %s seu pedido de n %s , foi realizado com sucesso.\nstatus: %s.", pedidoId, cliente,valor, status);
+    }
 
 }
