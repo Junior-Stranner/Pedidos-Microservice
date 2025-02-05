@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   rabbitmq:
-    image: rabbitmq:4.0-management
+    image: rabbitmq:3-management
     container_name: rabbitmq
     restart: unless-stopped
     environment:
@@ -13,7 +13,14 @@ services:
       - '5672:5672'
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
-      - rabbitmq_log:/var/lib/rabbitmq
+      - rabbitmq_log:/var/log/rabbitmq
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    ports:
+      - '1025:1025'
+      - '8025:8025'
 
 volumes:
   rabbitmq_data:
