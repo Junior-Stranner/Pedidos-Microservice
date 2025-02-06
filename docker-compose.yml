@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   rabbitmq:
     image: rabbitmq:3-management
@@ -30,11 +28,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
     ports:
-     - '5432:5432'
+      - '5432:5432'
     volumes:
-      - postgres_data:/var/lib/postgres/data
-
+      - postgres_data:/var/lib/postgresql/data  # Caminho corrigido
 
 volumes:
   rabbitmq_data:
   rabbitmq_log:
+  postgres_data:

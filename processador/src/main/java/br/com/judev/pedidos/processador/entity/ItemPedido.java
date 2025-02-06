@@ -14,7 +14,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ItemPedido {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id = UUID.randomUUID();
 
     @ManyToOne
