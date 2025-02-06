@@ -21,7 +21,7 @@ public class Pedido {
     private List<ItemPedido> itens;
 
     private double valorTotal;
-    private String emailNotificacao;
+    private String emailNotificacao = "teste@gmail.com";
 
     private Status status = Status.EM_PROCESSAMENTO;
 
@@ -53,7 +53,6 @@ public class Pedido {
         return status;
     }
 
-    public LocalDateTime getDataHora() {
-        return dataHora;
-    }
+
+
 }

@@ -19,8 +19,8 @@ public class PedidoListener {
 
 
     @RabbitListener(queues = "pedidos.v1.pedido-criado.gerar-notificacao")
-    private void enviarnotificacao(Pedido pedido){
+    public void enviarnotificacao(Pedido pedido){
         emailService.enviarEmail(pedido);
-        logger.info("Notificaçã gerada: {} ", pedido.toString());
+        logger.info("Notificação gerada: {} ", pedido.toString());
     }
 }

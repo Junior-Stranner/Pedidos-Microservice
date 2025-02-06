@@ -39,31 +39,24 @@ public class Pedido {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dataHora = LocalDateTime.now();
 
-    public UUID getId() {
-        return id;
+    public void setStatus(Status status){
+        this.status = status;
     }
-
-    public String getCliente() {
-        return cliente;
-    }
-
     public List<ItemPedido> getItens() {
-        return itens;
+        return this.itens;
     }
 
-    public double getValorTotal() {
-        return valorTotal;
-    }
 
-    public String getEmailNotificacao() {
-        return emailNotificacao;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public LocalDateTime getDataHora() {
-        return dataHora;
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", cliente='" + cliente + '\'' +
+                ", itens=" + itens +
+                ", valorTotal=" + valorTotal +
+                ", emailNotificacao='" + emailNotificacao + '\'' +
+                ", status=" + status +
+                ", dataHora=" + dataHora +
+                '}';
     }
 }

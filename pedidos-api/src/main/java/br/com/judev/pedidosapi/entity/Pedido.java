@@ -27,4 +27,17 @@ public class Pedido {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dataHora = LocalDateTime.now();
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", cliente='" + cliente + '\'' +
+                ", itens=" + itens +
+                ", valorTotal=" + valorTotal +
+                ", emailNotificacao='" + emailNotificacao + '\'' +
+                ", status=" + status +
+                ", dataHora=" + dataHora +
+                '}';
+    }
 }

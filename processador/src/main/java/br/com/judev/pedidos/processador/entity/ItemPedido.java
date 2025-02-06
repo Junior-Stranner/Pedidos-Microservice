@@ -1,9 +1,7 @@
 package br.com.judev.pedidos.processador.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -12,6 +10,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter@Setter
 public class ItemPedido {
     @Id
     private UUID id = UUID.randomUUID();
@@ -22,4 +21,14 @@ public class ItemPedido {
 
     @ManyToOne
     private Pedido pedido;
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public ItemPedido getProduto(){
+        return getProduto();
+    }
+
+
 }

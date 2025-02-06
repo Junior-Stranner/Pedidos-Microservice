@@ -2,9 +2,7 @@ package br.com.judev.pedidos.processador.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -13,11 +11,13 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter@Setter
 public class Produto {
 
     @Id
     private UUID id = UUID.randomUUID();
     private String nome;
     private double valor;
+
 
 }

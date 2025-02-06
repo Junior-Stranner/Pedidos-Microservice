@@ -30,7 +30,7 @@ public class EmailService {
         String valor = String.valueOf(pedido.getValorTotal());
         String status = pedido.getStatus().name();
 
-        return String.format("Olá  %s seu pedido de n %s , foi realizado com sucesso.\nstatus: %s.", pedidoId, cliente,valor, status);
+        return String.format("Olá  "+pedidoId+" : "+cliente+" seu pedido de "+valor+", foi realizado com sucesso.\nstatus: "+status+".");
     }
 
 }
