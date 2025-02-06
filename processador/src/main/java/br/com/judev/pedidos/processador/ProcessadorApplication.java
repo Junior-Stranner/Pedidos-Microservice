@@ -1,4 +1,4 @@
-package br.com.judev.processador;
+package br.com.judev.pedidos.processador;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
