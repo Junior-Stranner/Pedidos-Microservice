@@ -17,16 +17,18 @@ public class ItemPedidoService {
         this.itemPedidoRepository = itemPedidoRepository;
     }
 
-
     public List<ItemPedido> save(List<ItemPedido> itens) {
-        itemPedidoRepository.saveAll(itens);
-        return itens;
+        return itemPedidoRepository.saveAll(itens);
     }
 
-    public void updateItemPedido(List<ItemPedido> itens, Pedido pedido) {
-        itens.forEach(item -> {
-            item.setPedido(pedido);//informando ao item o seu pedido
-            this.save(itens);
+    public void save(ItemPedido item) {
+        itemPedidoRepository.save(item);
+    }
+
+    public void updatedItemPedido(List<ItemPedido> itemPedidos, Pedido pedido) {
+        itemPedidos.forEach(item -> {
+            item.setPedido(pedido); // informando ao item o seu pedido
+            this.save(item);
         });
     }
 }

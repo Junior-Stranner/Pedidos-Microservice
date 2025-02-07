@@ -18,6 +18,4 @@ public class Produto {
     private UUID id = UUID.randomUUID();
     private String nome;
     private double valor;
-
-
 }

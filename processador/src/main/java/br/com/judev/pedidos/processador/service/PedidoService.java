@@ -15,22 +15,23 @@ import java.util.List;
 public class PedidoService {
 
     private final Logger logger = LoggerFactory.getLogger(PedidoService.class);
-    private final ProdutoService produtoService ;
     private final PedidoRepository pedidoRepository;
-    private final ItemPedidoService itemPedidoService ;
+    private final ProdutoService produtoService;
+    private final ItemPedidoService itemPedidoService;
 
-    public PedidoService(ProdutoService produtoService, PedidoRepository pedidoRepository, ItemPedidoService itemPedidoService) {
-        this.produtoService = produtoService;
+    public PedidoService(PedidoRepository pedidoRepository, ProdutoService produtoService, ItemPedidoService itemPedidoService) {
         this.pedidoRepository = pedidoRepository;
+        this.produtoService = produtoService;
         this.itemPedidoService = itemPedidoService;
     }
 
-    public void save(Pedido pedido){
-        produtoService.save(pedido.getItens());
-        List<ItemPedido> itens = itemPedidoService.save(pedido.getItens());
-        pedidoRepository.save(pedido);
-        itemPedidoService.updateItemPedido(itens, pedido);
+    public void save(Pedido pedido) {
 
+        produtoService.save(pedido.getItens());
+        List<ItemPedido> itemPedidos = itemPedidoService.save(pedido.getItens());
+        pedidoRepository.save(pedido);
+        itemPedidoService.updatedItemPedido(itemPedidos, pedido);
         logger.info("Pedido salvo: {}", pedido.toString());
     }
+
 }

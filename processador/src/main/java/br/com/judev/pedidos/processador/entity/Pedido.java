@@ -7,6 +7,7 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +25,7 @@ public class Pedido {
     private String cliente;
 
     @OneToMany(mappedBy = "pedido")
-    private List<ItemPedido> itens;
+    private List<ItemPedido> itens = new ArrayList<>();
 
     @Column(name = "valor_total")
     private double valorTotal;
@@ -33,7 +34,7 @@ public class Pedido {
     private String emailNotificacao;
 
     @Enumerated(EnumType.STRING)
-    private Status status = Status.EM_PROCESSAMENTO;
+    private Status status;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -45,7 +46,6 @@ public class Pedido {
     public List<ItemPedido> getItens() {
         return this.itens;
     }
-
 
     @Override
     public String toString() {

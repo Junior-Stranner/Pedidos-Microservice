@@ -26,9 +26,8 @@ public class ItemPedido {
         this.pedido = pedido;
     }
 
-    public ItemPedido getProduto(){
-        return getProduto();
+    public Produto getProduto(){
+        return this.produto;
     }
-
 
 }
