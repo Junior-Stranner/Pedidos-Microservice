@@ -1,4 +1,4 @@
-package br.com.judev.notificacao;
+package br.com.judev.pedidos.notificacao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

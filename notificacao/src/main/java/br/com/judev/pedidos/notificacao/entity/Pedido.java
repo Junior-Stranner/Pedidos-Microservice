@@ -1,6 +1,6 @@
-package br.com.judev.notificacao.entity;
+package br.com.judev.pedidos.notificacao.entity;
 
-import br.com.judev.notificacao.entity.enums.Status;
+import br.com.judev.pedidos.notificacao.entity.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

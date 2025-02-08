@@ -1,4 +1,5 @@
-package br.com.judev.notificacao.entity;
+package br.com.judev.pedidos.notificacao.entity;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +10,10 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemPedido {
-    private UUID id = UUID.randomUUID();
+public class Produto {
 
-    private Produto produto;
-    private Integer quantidade;
+    private UUID id = UUID.randomUUID();
+    private String nome;
+    private double valor;
+
 }

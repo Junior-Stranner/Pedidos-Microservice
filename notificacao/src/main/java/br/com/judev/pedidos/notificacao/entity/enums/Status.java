@@ -1,4 +1,4 @@
-package br.com.judev.notificacao.entity.enums;
+package br.com.judev.pedidos.notificacao.entity.enums;
 
 public enum Status {
     EM_PROCESSAMENTO, PROCESSADO;

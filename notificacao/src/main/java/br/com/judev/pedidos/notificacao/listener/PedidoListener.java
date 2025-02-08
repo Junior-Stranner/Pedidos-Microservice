@@ -1,7 +1,7 @@
-package br.com.judev.notificacao.listener;
+package br.com.judev.pedidos.notificacao.listener;
 
-import br.com.judev.notificacao.entity.Pedido;
-import br.com.judev.notificacao.service.EmailService;
+import br.com.judev.pedidos.notificacao.entity.Pedido;
+import br.com.judev.pedidos.notificacao.service.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -26,6 +26,5 @@ public class PedidoListener {
         }
         emailService.enviarEmail(pedido);
         logger.info("Notificação gerada: {}", pedido.toString());
-    }
     }
 }

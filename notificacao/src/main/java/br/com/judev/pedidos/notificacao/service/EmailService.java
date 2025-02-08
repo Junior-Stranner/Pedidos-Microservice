@@ -1,6 +1,6 @@
-package br.com.judev.notificacao.service;
+package br.com.judev.pedidos.notificacao.service;
 
-import br.com.judev.notificacao.entity.Pedido;
+import br.com.judev.pedidos.notificacao.entity.Pedido;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
